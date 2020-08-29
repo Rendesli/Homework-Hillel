@@ -1,4 +1,4 @@
-function Type(a) {
+function type(a) {
     if (typeof a === "number") {
         return ("1");
     } else if (typeof a === "string") {
@@ -8,4 +8,4 @@ function Type(a) {
     }
 }
 
-Type(Boolean);
+type(Boolean);
