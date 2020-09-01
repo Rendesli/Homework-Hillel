@@ -1,0 +1,5 @@
+let str = prompt("Введите слово или число!");
+function reverse(str) {
+  return str.length === 0 ? '' : str[str.length - 1] + reverse(str.slice(1, str.length - 1)) + str[0]
+}
+alert(reverse(str));
