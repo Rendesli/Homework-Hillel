@@ -6,13 +6,10 @@ function myMapCallback(arr, cb) {
 
     for (let i = 0; i < arr.length; i++) {
         let item = arr[i];
-        arrLength[i] = cb(item, i, arr).toUpperCase(arrLength);
+        arrLength[i] = cb(item, i, arr);
     }
     return arrLength;
 }
 
-console.log(myMapCallback(strarr,( item=>{ return item })));
+console.log(myMapCallback(strarr,( item=>{ return item.toUpperCase()})));
 console.log(strarr.map((item)=> item.toUpperCase()));
-
-
-
