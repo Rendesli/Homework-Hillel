@@ -1,23 +1,20 @@
-//----без использования метода мар
+//Исправленно --------------------------------
+
 let str = 'Что разум человека может постигнуть и во что он может поверить, того он способен достичь.';
 
-
 let strarr = str.split(" ");
 
+function myMapCallback(arr, cb) {
+    let arrLength = [];
 
-var arrLength = [];
-for (var i = 0; i < strarr.length; i++) {
-    arrLength[i] = strarr[i].length;
+    for (let i = 0; i < arr.length; i++) {
+        const item = arr[i].length;
+        arrLength[i] = cb(item, i, arr);
+    }
+    return arrLength;
 }
-console.log(arrLength);
 
-//----С использованием метода мар----
-
-let str = 'Что разум человека может постигнуть и во что он может поверить, того он способен достичь.';*/
-
-let strarr = str.split(" ");
-
-var arrLength = strarr.map(function (item) {
-    return item.length;
-});
-console.log(arrLength);
+const result = myMapCallback(strarr, (item) => {
+    return item;
+})
+console.log(result);
