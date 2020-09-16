@@ -1,7 +1,7 @@
-let world="ПриВЕт";
+let word="ПриВЕт";
 
 function  filterUpperCase(world){
 
-  return [].filter.call(world, (item) => item === item.toUpperCase() ? item : false);
+  return [].filter.call(word, (item) => item === item.toUpperCase() ? item : false);
 }
 console.log(filterUpperCase(world));
