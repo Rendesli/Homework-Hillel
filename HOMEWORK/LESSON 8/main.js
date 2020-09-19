@@ -34,7 +34,7 @@ console.log(s.maxMark());
        marks = [];
 
        for (let i = 0; i < 4; i++) {
-         marks[i] = Math.abs(1 + Math.floor(Math.random() * 10));
+         marks[i] = Math.floor(1 + Math.floor(Math.random() * 10));
        }
 
        return marks;
