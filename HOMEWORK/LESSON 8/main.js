@@ -25,11 +25,11 @@ console.log(s.maxMark());
 //-----------------------------------------2 задание-------------------
 
 
- function addStudents(size = 5) {
+ function addStudents() {
    massiveStudents = [];
    let names = ['Tolya', 'Anton', 'Artem', 'Boris', 'Vadim'];
 
-   for (let i = 0; i < size; i++) {
+   for (let i = 0; i < 5; i++) {
      massiveStudents[i] = new Students(names[i], function () {
        marks = [];
 
