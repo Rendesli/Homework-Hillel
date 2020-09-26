@@ -19,9 +19,18 @@ class Human {
 
 
 class Teacher extends Human {
-    constructor(config) {
-        super(config);
-        this.group = config.group;
+    constructor({
+        name,
+        surname,
+        age,
+        group
+    }) {
+        super({
+            name,
+            surname,
+            age
+        });
+        this.group = group;
     }
     getListOfNamesByAverageMark() {
         return this.group.sort((student1, student2) => student2.averageMark() - student1.averageMark()).map((student) => student.name);
@@ -39,9 +48,18 @@ class Teacher extends Human {
 };
 
 class Student extends Human {
-    constructor(config) {
-        super(config);
-        this.marks = config.marks;
+    constructor({
+        name,
+        surname,
+        age,
+        marks
+    }) {
+        super({
+            name,
+            surname,
+            age
+        });
+        this.marks = marks;
     }
     averageMark() {
         return this.marks.reduce((acc, curr) => acc + curr) / this.marks.length;
@@ -109,4 +127,5 @@ let human = new Human({
     surname: "Golden",
     age: 25
 });
+
 console.log(teacher.getListOfNamesByAverageMark());
