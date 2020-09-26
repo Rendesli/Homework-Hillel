@@ -24,28 +24,18 @@ class Teacher extends Human {
         this.group = config.group;
     }
     getListOfNamesByAverageMark() {
-        return this.group
-            .sort((a, b) => b.averageMark() - a.averageMark())
-            .map((item) => item.name);
+        return this.group.sort((a, b) => b.averageMark() - a.averageMark()).map((item) => item.name);
     }
-
     getStudentByName(name) {
         return this.group.find((item) => item.name === name);
     }
-
     removeStudentByName(name) {
         let tempName = this.getStudentByName(name);
         return this.group.splice(this.group.indexOf(tempName), 1);
     }
-
     updateStudentByName(student, name) {
-        this.group.splice(
-            this.group.indexOf(this.getStudentByName(name)),
-            1,
-            new Student(student)
-        )
+        this.group.splice(this.group.indexOf(this.getStudentByName(name)), 1, new Student(student))
     }
-
 };
 
 class Student extends Human {
@@ -56,18 +46,14 @@ class Student extends Human {
     averageMark() {
         return this.marks.reduce((acc, curr) => acc + curr) / this.marks.length;
     }
-
     minMark() {
         return this.marks.sort((a, b) => b - a)[this.marks.length - 1];
     }
-
     maxMark() {
         return this.marks.sort((a, b) => a - b)[this.marks.length - 1];
     }
-
     getFullName() {
         return `${this.name} ${this.surname} - student`;
-
     }
 };
 
