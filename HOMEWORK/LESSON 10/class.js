@@ -24,14 +24,14 @@ class Teacher extends Human {
         this.group = config.group;
     }
     getListOfNamesByAverageMark() {
-        return this.group.sort((a, b) => b.averageMark() - a.averageMark()).map((item) => item.name);
+        return this.group.sort((student1, student2) => student2.averageMark() - student1.averageMark()).map((student) => student.name);
     }
     getStudentByName(name) {
         return this.group.find((item) => item.name === name);
     }
     removeStudentByName(name) {
-        let tempName = this.getStudentByName(name);
-        return this.group.splice(this.group.indexOf(tempName), 1);
+        let templet = this.getStudentByName(name);
+        return this.group.splice(this.group.indexOf(templet), 1);
     }
     updateStudentByName(student, name) {
         this.group.splice(this.group.indexOf(this.getStudentByName(name)), 1, new Student(student))
@@ -109,3 +109,4 @@ let human = new Human({
     surname: "Golden",
     age: 25
 });
+console.log(teacher.getListOfNamesByAverageMark());
