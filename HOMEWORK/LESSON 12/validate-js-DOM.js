@@ -13,16 +13,11 @@ function init() {
     let listStudents = document.querySelector('.listStudents');
     let errorSpan = document.createElement('span');
     errorSpan.classList.add('message');
-    //console.log(getStudent, AddStudent);
-
 
     getStudent.onclick = function () {
         let formStudents = document.getElementById('formStudents');
         let elementsForms = formStudents.elements;
 
-        //console.log(elementsForms);
-        //console.log(formStudents);
-        console.log('valid', validateForm(elementsForms));
         if (!validateForm(elementsForms)) {
             errorSpan.classList.add('error');
             errorSpan.textContent = 'Заполните все поля!';
@@ -32,6 +27,17 @@ function init() {
 
             errorSpan.classList.remove('error');
         }
+
+        if (!validateMarks(elementsForms)) {
+            errorSpan.classList.add('error');
+            errorSpan.textContent = 'Введите число от 1 до 10';
+            formStudents.append(errorSpan);
+            return false;
+        } else {
+
+            errorSpan.classList.remove('error');
+        }
+        //  if(!validateMarks(marks.value))
 
         let name = elementsForms.name.value,
             surname = elementsForms.surname.value,
@@ -52,8 +58,7 @@ function init() {
             marks
         }));
 
-        // console.log(teacher.group);
-        // console.log(teacher);
+       
     }
     AddStudent.onclick = function () {
         teacher.group.sort((student1, student2) => student2.averageMark() - student1.averageMark());
@@ -68,6 +73,7 @@ function init() {
         let valid = true;
         for (const elem of elements) {
             if (!elem.value.length) {
+                console.log('valid');
                 valid = false;
                 elem.classList.add('error');
                 elem.classList.remove('success');
@@ -75,8 +81,27 @@ function init() {
                 elem.classList.add('success');
                 elem.classList.remove('error');
             }
+
         }
         return valid;
+    }
+
+    function validateMarks(elements) {
+        let valid = true;
+        let validTypes = 'number';
+        for (const elem of elements) {
+            if (validTypes.includes(elem.type)) {
+                if (elem.value > 10) {
+                    valid = false;
+                    elem.classList.add('error');
+                    elem.classList.remove('success');
+                } else {
+                    elem.classList.add('success');
+                    elem.classList.remove('error');
+                }
+            }
+        }
+
     }
 }
 
