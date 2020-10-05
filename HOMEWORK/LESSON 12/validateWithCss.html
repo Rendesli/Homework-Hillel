@@ -19,7 +19,7 @@
         }
 
         input {
-            border: 2px solid grey;
+            border: 2px solid greenyellow;
             margin: 5px;
             border-top-left-radius: 10px;
             border-top-color: hotpink;
@@ -27,16 +27,21 @@
         }
 
         .listStudents {
-            float: left;
+            float: right;
             color: purple;
-            border: 2px solid grey;
+            border: 2px solid orangered;
             border-radius: 12px;
             width: 30%;
             height: 60px;
 
         }
 
+        .listStud {
+            width: 30%;
+        }
+
         #getStudent {
+
             color: indigo;
             background-color: rgb(123, 218, 250);
             border-radius: 8px;
@@ -66,14 +71,11 @@
             color: red;
             font-weight: bold;
         }
-        div{
-            text-align: center;
-        }
     </style>
 </head>
 
 <body>
-<div>
+
     <form id="formStudents" class="formStud">
         <label>Введите имя студента: </label><br><input type="text" name="name" placeholder="Tolya" id="name"><br>
         <label>Введите фамилию студента: </label><br><input type="text" name="surname" placeholder="Vashington" id="surname"><br>
@@ -86,15 +88,14 @@
         <input type="number" name="marks5" placeholder="10" id="marks5"><br>
     </form>
 
-    <form class="listStudents">
-        <label>Список студентов:</label>
+    <div class="listStudents">
+        <label>Список студентов</label>
         <ol></ol>
-    </form>
-    <form class="listStud">
-        <button id="getStudent">Get date of student</button><br>
+    </div>
+    <div class="listStud">
+        <button id="getStudent">Get date of student</button>
         <button id="AddStudent">Add student in group Teacher</button>
-    </form>
-</div>
+    </div>
 </body>
 
 </html>
