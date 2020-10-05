@@ -11,31 +11,28 @@ function init() {
     let getStudent = document.querySelector('#getStudent');
     let AddStudent = document.querySelector('#AddStudent');
     let listStudents = document.querySelector('.listStudents');
-    console.log(getStudent, AddStudent);
+    //console.log(getStudent, AddStudent);
 
     
     getStudent.onclick = function () {
-
         let formStudents = document.getElementById('formStudents');
         let childForms = formStudents.children;
      
 console.log(childForms);
-[name, surname, age, marks ]  = Array.from(formStudents).filter( (item) => item.type === 'text').map( (item) => item.value);
+let name =formStudents.name.value,
+surname=formStudents.surname.value,
+age = formStudents.age.value,
+marks =formStudents.marks.value.split(',').map(Number);
 
-        teacher.group.push(new Student({
-            name,
-            surname,
-            age: Number.parseInt(age),
-            marks: marks.split(',').map( (item) => Number.parseInt(item)),
-           
-        }));
+teacher.group.push(new Student({name,surname,age,marks}));
+
     console.log(teacher.group);
     console.log(teacher);
 }
 AddStudent.onclick = function () {
     teacher.group.sort( (student1, student2) => student2.averageMark() - student1.averageMark());
 
-    let newStudent = teacher.group.map( (item) => '<li>' + item.name + ' - ' + item.surname + 
+    let newStudent = teacher.group.map( (item) => '<li>' + item.name + ' ' + item.surname + 
     ' - ' + item.averageMark() + '</li>').join("");
 
     listStudents.innerHTML = newStudent;
