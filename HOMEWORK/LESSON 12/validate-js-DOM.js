@@ -13,10 +13,16 @@ function init() {
     let listStudents = document.querySelector('.listStudents');
     let errorSpan = document.createElement('span');
     errorSpan.classList.add('message');
+    //console.log(getStudent, AddStudent);
+
 
     getStudent.onclick = function () {
         let formStudents = document.getElementById('formStudents');
         let elementsForms = formStudents.elements;
+
+        //console.log(elementsForms);
+        //console.log(formStudents);
+        // console.log('valid', validateForm(elementsForms));
 
         if (!validateForm(elementsForms)) {
             errorSpan.classList.add('error');
@@ -58,7 +64,8 @@ function init() {
             marks
         }));
 
-       
+        // console.log(teacher.group);
+        // console.log(teacher);
     }
     AddStudent.onclick = function () {
         teacher.group.sort((student1, student2) => student2.averageMark() - student1.averageMark());
@@ -101,7 +108,7 @@ function init() {
                 }
             }
         }
-
+        return valid;
     }
 }
 
