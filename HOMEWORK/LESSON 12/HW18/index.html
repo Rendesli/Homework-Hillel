@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="classPizza.js"></script>
+    <style>
+        body {
+            background-color: rgb(54, 88, 116);
+        }
+
+        .div-radio {
+            height: 100px;
+            font-size: 34px;
+            background-color: rgb(7, 113, 155);
+            position: relative;
+            text-align: center;
+            color: rgb(13, 13, 71);
+            box-shadow: 0 0 15px coral;
+            border-radius: 5px;
+            border-bottom-left-radius: 45px;
+            border-top-right-radius: 45px;
+        }
+
+        input {
+            width: 25px;
+            height: 25px;
+
+            margin: 35px 5px 35px 35px;
+
+        }
+
+        .form-radio {
+            width: 100%;
+
+            background-color: rgb(32, 141, 145);
+            padding-top: 0%;
+            border-radius: 4px;
+            border-bottom-left-radius: 45px;
+            border-top-right-radius: 45px;
+            box-shadow: 0 0 20px coral;
+        }
+
+        .but_zakaz {
+            background-color: rgba(0, 106, 155, 0.884);
+            width: 150px;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            border-color: coral;
+            transition-duration: 0.4s
+        }
+
+        .but_zakaz:hover {
+            background-color: #004869;
+            color: coral;
+        }
+        .message {
+            display: none;
+        }
+
+        .message.error {
+            display: block;
+            color: coral;
+            font-weight: bold;
+        }
+        .message.success{
+            display: block;
+            color: rgba(52, 0, 119, 0.726);
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div-radio">
+        <H1>Заказ пиццы</H1>
+
+        <form class="form-radio" id="data-of-pizza">
+            <label><input type="radio" name="size" class="radio" value="0" /> Маленькая пицца</label>
+            <label><input type="radio" checked name="size" class="radio" value="1" /> Средняя пицца</label>
+            <label><input type="radio" name="size" class="radio" value="2" /> Большая пицца</label><br>
+            <label><input type="checkbox" class="check" name="ingridient" id="tomato" value="помидоры" />Помидоры</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="salami" value="cалями" />Салями</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="mushrooms" value="грибы" />Грибы</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="cheese" value="моцарелла" />Моцарелла</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="olives" value="маслины" />Маслины</label><br>
+        </form>
+        <button class="but_zakaz"><b>Заказать</b></button>
+    </div>
+</body>
+
+</html>
