@@ -23,7 +23,9 @@
             border-bottom-left-radius: 45px;
             border-top-right-radius: 45px;
         }
-
+.div-radio.close{
+    display: none;
+}
         input {
             width: 25px;
             height: 25px;
@@ -73,6 +75,40 @@
             color: rgba(52, 0, 119, 0.726);
             font-weight: bold;
         }
+        .modal{
+            display: none;
+        }
+        
+      
+            .modal.open{
+                display:block;
+            background-color:blueviolet;
+            align-items: center;  
+            text-align: center; 
+            margin-left: 500px;
+            margin-right: 450px;
+            width: 900px;
+            height: 400px;
+            z-index: 100;
+            position:relative;
+        }
+       .next{
+           border-radius: 4px;
+           background-color: cyan;
+       }
+       .close{
+           border-radius: 4px;
+           background-color: cyan;
+       }
+       .check-status{
+        display: block;
+        width: 200px;
+        height: 100px;
+        background-color: darkkhaki;
+            color: rgba(52, 0, 119, 0.726);
+            font-weight: bold;
+            align-content: center;
+       }
     </style>
 </head>
 
@@ -92,6 +128,35 @@
         </form>
         <button class="but_zakaz"><b>Заказать</b></button>
     </div>
+    <div id="openModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Подтвердить оплату?</h2>
+            </div>
+            <div class="modal-body">    
+              <p></p>
+              <button href="#close" title="Close" class="close">Нет</button>
+              <button href="#next" title="next" class="next">Да</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="openModal2" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title">Оцените пожалуста наш сервис</h2>
+            </div>
+            <div class="modal-body">    
+              <p>Оставьте ваш отзыв</p>
+              <button href="#close" title="Close" class="close1">Не понравилось</button>
+              <button href="#next" title="next" class="next1">Понравилось</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
 </body>
 
 </html>
