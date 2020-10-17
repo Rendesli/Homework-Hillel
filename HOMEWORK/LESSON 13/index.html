@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+     <script type="module" src="validate.js"></script>
+    <script type="module" src="class-StoreService.js"></script>
+    <script type="module" src="class-Order.js"></script>
+    <script type="module" src="classPizza.js"></script>
+    <style>
+        body {
+            background-color: rgb(54, 88, 116);
+        }
+
+        .div-radio {
+            height: 100px;
+            font-size: 34px;
+            background-color: rgb(7, 113, 155);
+            position: relative;
+            text-align: center;
+            color: rgb(13, 13, 71);
+            box-shadow: 0 0 15px coral;
+            border-radius: 5px;
+            border-bottom-left-radius: 45px;
+            border-top-right-radius: 45px;
+        }
+
+        .div-radio.close {
+            display: none;
+        }
+
+        input {
+            width: 25px;
+            height: 25px;
+
+            margin: 35px 5px 35px 35px;
+
+        }
+
+        .form-radio {
+            width: 100%;
+
+            background-color: rgb(32, 141, 145);
+            padding-top: 0%;
+            border-radius: 4px;
+            border-bottom-left-radius: 45px;
+            border-top-right-radius: 45px;
+            box-shadow: 0 0 20px coral;
+        }
+
+        .but_zakaz {
+            background-color: rgba(0, 106, 155, 0.884);
+            width: 150px;
+            height: 50px;
+            font-size: 16px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            margin-top: 15px;
+            border-color: coral;
+            transition-duration: 0.4s
+        }
+
+        .but_zakaz:hover {
+            background-color: #004869;
+            color: coral;
+        }
+
+        .message {
+            display: none;
+        }
+
+        .message.error {
+            display: block;
+            color: coral;
+            font-weight: bold;
+        }
+
+        .message.success {
+            display: block;
+            color: rgba(52, 0, 119, 0.726);
+            font-weight: bold;
+        }
+
+        .modal {
+            display: none;
+        }
+
+        .modal.open {
+            display: block;
+            background-color: rgb(197, 134, 255);
+            align-items: center;
+            text-align: center;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            width: 500px;
+            height: 259px;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            border-bottom: 6px solid cyan;
+        }
+
+        .modal-title {
+            font-size: 34px;
+
+            padding: 1px 0px 10px;
+            color: darkslateblue;
+            border-bottom: 3px solid darkcyan;
+        }
+
+        .modal-header {
+            padding-top: 5px;
+        }
+
+        .modal-body {
+            color: darkslateblue;
+            font-size: 22px;
+            line-height: 24px;
+        }
+
+        .next {
+            border-radius: 4px;
+            background-color: cyan;
+            width: 60px;
+            height: 30px;
+            margin: 50px 50px 100px 100px;
+
+        }
+
+        .close {
+            border-radius: 4px;
+            background-color: cyan;
+            width: 60px;
+            height: 30px;
+
+        }
+
+        .next1 {
+            border-radius: 4px;
+            background-color: cyan;
+            width: 150px;
+            height: 50px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .close1 {
+            border-radius: 4px;
+            background-color: cyan;
+            width: 150px;
+            height: 50px;
+            font-size: 16px;
+            text-align: center;
+
+        }
+
+        .check-status {
+            font-size: 34px;
+            color: rgb(121, 2, 65);
+            display: block;
+            background-color: rgb(0, 152, 179);
+            padding-top: 45px;
+            text-align: center;
+            position: fixed;
+            top: 30%;
+            left: 50%;
+            width: 400px;
+            height: 150px;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            border-bottom: 6px solid cyan;
+
+        }
+
+        .button-p {
+            text-align: center;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div-radio">
+        <H1>Заказ пиццы</H1>
+
+        <form class="form-radio" id="data-of-pizza">
+            <label><input type="radio" name="size" class="radio" value="0" /> Маленькая пицца</label>
+            <label><input type="radio" checked name="size" class="radio" value="1" /> Средняя пицца</label>
+            <label><input type="radio" name="size" class="radio" value="2" /> Большая пицца</label><br>
+            <label><input type="checkbox" class="check" name="ingridient" id="tomato"
+                    value="помидоры" />Помидоры</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="salami" value="cалями" />Салями</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="mushrooms" value="грибы" />Грибы</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="cheese"
+                    value="моцарелла" />Моцарелла</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="olives"
+                    value="маслины" />Маслины</label><br>
+        </form>
+        <button class="but_zakaz"><b>Заказать</b></button>
+    </div>
+    <div id="openModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Подтвердить оплату?</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Пожалуйста оплатите Ваш заказ</p>
+                    <button href="#close" title="Close" class="close">Нет</button>
+                    <button href="#next" title="next" class="next">Да</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="openModal2" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Оцените пожалуста наш сервис</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Оставьте ваш отзыв</p>
+                    <button href="#close" title="Close" class="close1"><span class="button-p">Не
+                            понравилось</span></button>
+                    <button href="#next" title="next" class="next1"><span class="button-p">Понравилось</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
