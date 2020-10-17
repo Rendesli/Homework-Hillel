@@ -83,6 +83,7 @@
         .modal {
             display: none;
         }
+
         .modal.open {
             display: block;
             background-color: rgb(197, 134, 255);
@@ -97,17 +98,20 @@
             border-radius: 10px;
             border-bottom: 6px solid cyan;
         }
-        .modal-title{
+
+        .modal-title {
             font-size: 34px;
-          
+
             padding: 1px 0px 10px;
             color: darkslateblue;
-            border-bottom:3px solid darkcyan;
+            border-bottom: 3px solid darkcyan;
         }
-        .modal-header{
-padding-top: 5px;
+
+        .modal-header {
+            padding-top: 5px;
         }
-        .modal-body{
+
+        .modal-body {
             color: darkslateblue;
             font-size: 22px;
             line-height: 24px;
@@ -118,7 +122,7 @@ padding-top: 5px;
             background-color: cyan;
             width: 60px;
             height: 30px;
-            margin:50px 50px 100px 100px;
+            margin: 50px 50px 100px 100px;
 
         }
 
@@ -127,31 +131,35 @@ padding-top: 5px;
             background-color: cyan;
             width: 60px;
             height: 30px;
+
         }
+
         .next1 {
             border-radius: 4px;
             background-color: cyan;
             width: 150px;
             height: 50px;
-       
-           
-
+            font-size: 16px;
+            text-align: center;
         }
 
-        .close1{
+        .close1 {
             border-radius: 4px;
             background-color: cyan;
             width: 150px;
             height: 50px;
+            font-size: 16px;
+            text-align: center;
+
         }
 
         .check-status {
-     font-size: 34px;
-     color:rgb(121, 2, 65);
+            font-size: 34px;
+            color: rgb(121, 2, 65);
             display: block;
             background-color: rgb(0, 152, 179);
-    padding-top: 45px;
-    text-align: center;
+            padding-top: 45px;
+            text-align: center;
             position: fixed;
             top: 30%;
             left: 50%;
@@ -160,15 +168,12 @@ padding-top: 5px;
             transform: translate(-50%, -50%);
             border-radius: 10px;
             border-bottom: 6px solid cyan;
-            
+
         }
-        .img-like{
-            width: 30px;
-            height: 30px;
-        }
-        .img-dislike{
-            width: 30px;
-            height: 30px;
+
+        .button-p {
+            text-align: center;
+
         }
     </style>
 </head>
@@ -181,14 +186,11 @@ padding-top: 5px;
             <label><input type="radio" name="size" class="radio" value="0" /> Маленькая пицца</label>
             <label><input type="radio" checked name="size" class="radio" value="1" /> Средняя пицца</label>
             <label><input type="radio" name="size" class="radio" value="2" /> Большая пицца</label><br>
-            <label><input type="checkbox" class="check" name="ingridient" id="tomato"
-                    value="помидоры" />Помидоры</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="tomato"value="помидоры" />Помидоры</label>
             <label><input type="checkbox" class="check" name="ingridient" id="salami" value="cалями" />Салями</label>
             <label><input type="checkbox" class="check" name="ingridient" id="mushrooms" value="грибы" />Грибы</label>
-            <label><input type="checkbox" class="check" name="ingridient" id="cheese"
-                    value="моцарелла" />Моцарелла</label>
-            <label><input type="checkbox" class="check" name="ingridient" id="olives"
-                    value="маслины" />Маслины</label><br>
+            <label><input type="checkbox" class="check" name="ingridient" id="cheese" value="моцарелла" />Моцарелла</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="olives"value="маслины" />Маслины</label><br>
         </form>
         <button class="but_zakaz"><b>Заказать</b></button>
     </div>
@@ -214,13 +216,17 @@ padding-top: 5px;
                 </div>
                 <div class="modal-body">
                     <p>Оставьте ваш отзыв</p>
-                    <button href="#close" title="Close" class="close1"><img src="https://www.pngfind.com/pngs/m/44-445596_thumbs-down-icon-white-hd-png-download.png" class="img-dislike">Не понравилось</button>
-                    <button href="#next" title="next" class="next1"> <img src="https://img.icons8.com/cotton/2x/facebook-like--v2.png" class="img-like">Понравилось</button>
+                    <button href="#close" title="Close" class="close1"><span class="button-p">Не
+                            понравилось</span></button>
+                    <button href="#next" title="next" class="next1"><span class="button-p">Понравилось</span></button>
                 </div>
             </div>
         </div>
     </div>
-
+    <script src="validate.js"></script>
+    <script src="class-StoreService.js"></script>
+    <script src="class-Order.js"></script>
+    <script src="classPizza.js"></script>
 </body>
 
 </html>
