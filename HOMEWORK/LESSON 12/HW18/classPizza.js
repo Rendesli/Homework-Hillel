@@ -77,18 +77,20 @@ function init() {
                 ingridient,
                 status
             });
+        globDivClose.classList.add('close');
             modal.classList.add('open');
         }
     }
     closeBut.onclick = function () {
         modal.classList.remove('open');
+        globDivClose.classList.remove('close');
         errorSpan.classList.add('error');
         errorSpan.textContent = 'Вы отменили оплату!';
         dataOfPizza.append(errorSpan);
     }
 
     nextBut.onclick = function () {
-        globDivClose.classList.add('close');
+        //globDivClose.classList.add('close');
         modal.classList.remove('open');
         setTimeout(orderCooking, 1000);
         store.setItem(order);
@@ -132,7 +134,7 @@ function init() {
 
     let orderOnYou = function () {
         order.status = "delivered";
-        createDiv("Курьер достfвил пиццу");
+        createDiv("Курьер доставил пиццу");
         setTimeout(review, 1000);
     }
 
