@@ -1,49 +1,5 @@
 window.onload = init;
 
-class Order {
-    constructor({
-        size,
-        ingridient,
-        status
-    }) {
-        this.size = size;
-        this.ingridient = ingridient;
-        this.status = status;
-    }
-    static getOrderBySize(size) {
-        let foundOrder = order.getItem('size', size);
-        return foundOrder;
-    }
-    static getOrderByStatus(status) {
-        let foundOrder = order.getItem('status', status);
-        return foundOrder;
-    }
-    static createOrder(data) {
-        order.setItem(new Order(data));
-    }
-    static changeStatus(status, newStatus) {
-        let foundOrder = order.getItem('status', status);
-        foundOrder.status = newStatus;
-        return foundOrder;
-    }
-}
-
-class StoreService {
-    store = [];
-    constructor(initialStore = []) {
-        this.store = initialStore;
-    }
-
-    setItem(order) {
-        this.store.push(order);
-    }
-    getItem(key, value) {
-        return this.store.find(order => order[key] === value);
-    }
-}
-
-store = new StoreService();
-
 function init() {
     let globDivClose = document.querySelector('.div-radio');
     let dataOfPizza = document.getElementById('data-of-pizza'); //form
@@ -65,7 +21,7 @@ function init() {
     orderPizza.onclick = function () {
         if (!validateCheckbox(checkbox)) {
             errorSpan.classList.add('error');
-            errorSpan.textContent = 'Заполните все поля!';
+            errorSpan.textContent = 'Добавьте минимум 3 ингридиента!';
             dataOfPizza.append(errorSpan);
             return false;
         } else {
@@ -77,7 +33,7 @@ function init() {
                 ingridient,
                 status
             });
-        globDivClose.classList.add('close');
+            globDivClose.classList.add('close');
             modal.classList.add('open');
         }
     }
@@ -157,21 +113,6 @@ function init() {
         div.classList.add('check-status');
     }
 
-
-    function validateCheckbox(checkbox) {
-        let valid = true;
-        let count = 0;
-        // let ingridient = [];
-        for (let elem of checkbox) {
-            if (elem.checked == true) {
-                count = count + 1;
-            }
-        }
-        if (count < 3) {
-            valid = false;
-        }
-        return valid;
-    }
 }
 
 function getIngridients(checkbox) {
