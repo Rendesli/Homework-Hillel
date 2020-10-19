@@ -17,7 +17,6 @@ function init() {
     let nextBut = document.querySelector('.next');
     let closeBut1 = document.querySelector('.close1');
     let nextBut1 = document.querySelector('.next1');
-    //console.log(radioInput);
     let errorSpan = document.createElement('span');
     errorSpan.classList.add('message');
     let createSpanStatus = document.createElement('div');
@@ -51,7 +50,6 @@ function init() {
     }
 
     nextBut.onclick = function () {
-        //globDivClose.classList.add('close');
         modal.classList.remove('open');
         setTimeout(orderCooking, 1000);
         store.setItem(order);
@@ -71,8 +69,6 @@ function init() {
         createSpanStatus.textContent = 'Спасибо за Ваш отзыв!';
         modal2.classList.remove('open');
         document.body.append(createSpanStatus);
-
-        // modal2.append(createSpanStatus);
         setTimeout(closeReview, 2000);
     }
 
