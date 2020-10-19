@@ -1,0 +1,44 @@
+body{
+    background-color: rgb(255, 245, 231);
+}
+.formStud {
+    font-size: 20px;
+    float: left;
+    margin: 10px;
+    color: purple;
+width: 40%;
+}
+
+input {
+    border: 2px solid greenyellow;
+    margin: 5px;
+    border-top-left-radius: 10px;
+    border-top-color: hotpink;
+    background-color: rgb(123, 218, 250);
+}
+.listStudents {
+    font-size: 20px;
+    text-align: center;
+float:right;
+    color:purple;
+    border:  2px solid orangered;
+border-radius: 12px;
+    width: 30%;
+    height:60px;
+    
+}
+.listStud{
+    width: 30%;
+}
+#getStudent{
+font-size: 20px;
+color: indigo;
+background-color: rgb(123, 218, 250);
+border-radius: 8px ;
+} 
+#AddStudent{
+font-size: 20px;
+color: indigo;
+background-color: rgb(123, 218, 250);
+border-radius: 8px ;
+}

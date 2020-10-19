@@ -113,3 +113,58 @@ class Student extends Human {
         return `${this.name} ${this.surname} - student`;
     }
 };
+
+/* let group = [
+    new Student({
+        name: 'Vova',
+        surname: 'Lebedev',
+        age: 17,
+        marks: [7, 9, 10, 6, 4]
+    }),
+    new Student({
+        name: 'Katya',
+        surname: 'Golden',
+        age: 16,
+        marks: [7, 4, 2, 9, 8]
+    }),
+    new Student({
+        name: 'Vanya',
+        surname: 'Kalin',
+        age: 18,
+        marks: [4, 5, 7, 1, 9]
+    }),
+    new Student({
+        name: 'Sasha',
+        surname: 'Shelbi',
+        age: 19,
+        marks: [3, 7, 8, 2, 4]
+    }),
+    new Student({
+        name: 'Masha',
+        surname: 'Holms',
+        age: 21,
+        marks: [9, 6, 2, 10, 4]
+    })
+];
+
+let student = new Student({
+    name: "Frenk",
+    surname: "Medison",
+    age: 22,
+    marks: [9, 8, 6, 3, 5]
+});
+
+let teacher = new Teacher({
+    name: 'David',
+    surname: 'Ferdison',
+    age: 34,
+    group
+});
+
+let human = new Human({
+    name: "Sasha",
+    surname: "Golden",
+    age: 25
+});
+
+console.log(teacher.getListOfNamesByAverageMark()); */
