@@ -57,22 +57,22 @@ function init() {
     }
 
     closeBut1.onclick = function () {
-        thankReview();
+        saidThanksForReview();
     }
 
     nextBut1.onclick = function () {
-        thankReview();
+        saidThanksForReview();
     }
 
-    function thankReview() {
+    function saidThanksForReview() {
         createSpanStatus.classList.add('check-status');
         createSpanStatus.textContent = 'Спасибо за Ваш отзыв!';
         modal2.classList.remove('open');
         document.body.append(createSpanStatus);
-        setTimeout(closeReview, 2000);
+        setTimeout(closeTheThanksWindow, 2000);
     }
 
-    function closeReview() {
+    function closeTheThanksWindow() {
         let review = document.getElementsByClassName('check-status');
         while (review[0]) {
             review[0].parentNode.removeChild(review[0]);
