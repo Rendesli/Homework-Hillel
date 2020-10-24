@@ -1,7 +1,7 @@
 let boxSize = 32;
 let borderSize = 2;
 let gridCount = 13;
-let speed = 1000;
+let speed = 500;
 let processGame;
 let snake = createSnakeData(Math.floor(gridCount / 2), Math.floor(gridCount / 2), 5);
 let food = createFood();
@@ -32,23 +32,21 @@ function updateDirection(event) {
 
 function init() {
     gridContainer = find('#snake-container');
-     
-    // let score = find('.score > b');
-    let startBtn = find('#start-game');
-let endBtn = find('#end-game');
-let scoreDiv = find('.score b');
+    let messageBox = find('#message');
+    let score = find('.score > b');
+    let startBtn = document.getElementById('start-game');
+    let endBtn = document.getElementById('end-game');
+
     initGrid(gridCount, gridContainer);
-    
+
     // ----------------------------------------------
     startBtn.addEventListener('click', startHandler);
     endBtn.addEventListener('click', endHandler);
-    // игра должнв стартовать и заканчиватся по клику на кнопки 
+    // игра должна стартовать и заканчиватся по клику на кнопки 
     // ----------------------------------------------
-
-    //startGame();
 }
+
 function startHandler(event) {
-    
     startGame();
 
     let score = find('.score > b');
@@ -62,6 +60,7 @@ function startHandler(event) {
 
 function endHandler(event) {
     let messageBox = find('#message');
+
     endGame(messageBox);
 
     let startBtn = document.getElementById('start-game');
@@ -94,7 +93,6 @@ function createFood() {
 
 function startGame() {
     let randomBox = generateBoxForEat();
-
     updateSnake();
     processGame = setInterval(() => {
         let {
@@ -142,7 +140,6 @@ function startGame() {
         }
 
         snake.pop()
-        console.log(snake[0].cell, snake.length);
         updateSnake();
     }, speed);
 
@@ -150,10 +147,11 @@ function startGame() {
 
     function updateSnake() {
         clearSnake();
+
         // ---------------------------------------
         // написать ф-цию checkOnEated, которая проверяет съела ли змейка еду,
         // если да - убираем фрукт добавляет +1 в хвост и в score, а также генерируем новые координаты для еды
-         checkOnEated(randomBox.dataset);
+        checkOnEated(randomBox.dataset);
         // ----------------------------------
 
 
@@ -173,14 +171,20 @@ function startGame() {
         }
     }
 
-    function checkOnEated({cell,row}){
-if(snake[0].cell == +cell && snake[0].row == +row){
-    renewScore(score+=1);
-    food.remove();
-    randomBox = generateBoxForEat();
-}else{
-    snake.pop();
-}
+    function checkOnEated(dataset) {
+        let score = find('.score > b');
+        let updateScore = Number.parseInt(score.textContent);
+
+        if (snake[0].cell == dataset.cell && snake[0].row == dataset.row) {
+            randomBox = generateBoxForEat();
+
+            snake.push({
+                cell: snake[snake.length - 1].cell + 1,
+                row: snake[snake.length - 1].row
+            });
+            updateScore++;
+            score.textContent = updateScore;
+        }
     }
 
     function clearSnake() {
@@ -188,7 +192,7 @@ if(snake[0].cell == +cell && snake[0].row == +row){
         for (const cell of cells) {
             cell.className = 'snake-cell';
         }
-        // debugger;
+
     }
 
     function generateBoxForEat() {
@@ -205,19 +209,14 @@ if(snake[0].cell == +cell && snake[0].row == +row){
 
 
 }
-// ----------------------------------
-// дополнить эту функцию - вернуть все данные в начальное состояние
-// и использовать функцию во всех случаях. где игра завершается
+
 function endGame(message) {
-   message.textContent='Game Over!';
-    direction ="left";
-    renewScore(0);
-    food.remove();
-    hidden(endBtn,startBtn);
+    message.textContent = 'Game Over!';
     clearTimeout(processGame);
-    setTimeout(()=>{clearSnake(gridCOntainer)},1000);
+    direction = 'left';
+    createSnakeData(Math.floor(gridCount / 2), Math.floor(gridCount / 2), 5);
 }
-// ----------------------------------
+
 
 
 function initGrid(gridCount, target) {
@@ -234,7 +233,6 @@ function createSnakeRow(snakeClass, gridCount, row) {
     for (let index = 0; index < gridCount; index++) {
         fragment.append(createSnakeCell(snakeClass, row, index))
     }
-
     return fragment;
 }
 
@@ -253,13 +251,4 @@ function find(selector) {
 
 function findByCoords(cell, row) {
     return document.querySelector(`[data-cell = "${cell}"][data-row = "${row}"]`);
-}
-function renewScore(){
-    scoreDiv.innerHTML = score;
-}
-
-function hidden(but1,but2){
-    btn1.style.display = 'none';
-    btn2.style.display = 'block';
-
 }
