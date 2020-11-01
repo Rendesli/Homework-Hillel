@@ -62,7 +62,8 @@ function endHandler(event) {
     let messageBox = find('#message');
 
     endGame(messageBox);
-
+    let score = find('.score > b');
+    score.textContent = '0';
     let startBtn = document.getElementById('start-game');
 
     event.currentTarget.style = 'display: none';
