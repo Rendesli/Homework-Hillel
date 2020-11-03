@@ -1,0 +1,49 @@
+
+#divForm{	
+    display: flex;	
+}	
+#form {	
+    margin-top: 10px;	
+}	
+
+label {	
+    display: block;	
+    margin-top: 20px;	
+}	
+
+input {	
+    outline: none;	
+    border-radius: 4px;	
+}	
+
+#btn {	
+    background-color: rgb(72, 173, 255);	
+    margin-top: 20px;	
+}	
+
+input:valid {	
+    border: 2px solid black;	
+}	
+
+input:invalid:required {	
+    background-image: linear-gradient(to right, rgb(227, 147, 243), rgb(174, 181, 250));	
+    color: aqua;	
+}	
+
+.novalidEmail.error {	
+    border: 2px dashed red;	
+}	
+
+.validPSW.error {	
+    border: 2px dashed red;	
+}	
+
+.span {	
+    display: none;	
+}	
+
+.span.error {	
+    display: block;	
+    color: red;	
+    font-size: 16px;	
+} 
