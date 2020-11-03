@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="main.js"></script>
+    <link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+    <div class="div-radio">
+        <H1>Заказ пиццы</H1>
+
+        <form class="form-radio" id="data-of-pizza">
+            <label><input type="radio" name="size" class="radio" value="0" /> Маленькая пицца</label>
+            <label><input type="radio" checked name="size" class="radio" value="1" /> Средняя пицца</label>
+            <label><input type="radio" name="size" class="radio" value="2" /> Большая пицца</label><br>
+            <label><input type="checkbox" class="check" name="ingridient" id="tomato"
+                    value="помидоры" />Помидоры</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="salami" value="cалями" />Салями</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="mushrooms" value="грибы" />Грибы</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="cheese"
+                    value="моцарелла" />Моцарелла</label>
+            <label><input type="checkbox" class="check" name="ingridient" id="olives"
+                    value="маслины" />Маслины</label><br>
+        </form>
+        <button class="but_zakaz"><b>Заказать</b></button>
+    </div>
+    <div id="openModal" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Подтвердить оплату?</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Пожалуйста оплатите Ваш заказ</p>
+                    <button href="#close" title="Close" class="close">Нет</button>
+                    <button href="#next" title="next" class="next">Да</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="openModal2" class="modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2 class="modal-title">Оцените пожалуста наш сервис</h2>
+                </div>
+                <div class="modal-body">
+                    <p>Оставьте ваш отзыв</p>
+                    <button href="#close" title="Close" class="close1"><span class="button-p">Не
+                            понравилось</span></button>
+                    <button href="#next" title="next" class="next1"><span class="button-p">Понравилось</span></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
