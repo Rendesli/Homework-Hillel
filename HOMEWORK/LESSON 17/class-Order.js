@@ -1,4 +1,4 @@
-import StoreService from '/class-StoreService.js';
+import StoreService from './class-StoreService.js';
 export const store = new StoreService();
 export class Order {
     constructor({

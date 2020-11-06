@@ -68,12 +68,12 @@ function init() {
     function checkPaidForm() {
         return new Promise((resolve, reject) => {
             modal.classList.add('open');
-            setTimeout(() => {
+            // setTimeout(() => {
                     resolve('success');
-                }, 1000),
-                setTimeout(() => {
+                // }, 1000),
+                // setTimeout(() => {
                     reject(new Error('error'));
-                }, 2000);
+                // }, 2000);
         })
     }
 
