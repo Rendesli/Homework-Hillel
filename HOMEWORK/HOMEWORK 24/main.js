@@ -11,8 +11,8 @@ function init() {
     let orderPizza = document.querySelector('.but_zakaz'); //button
     let checkbox = document.getElementsByName('ingridient'); //ingridient
     let radioInput = document.getElementsByName('size');
-    let modal = document.getElementById('openModal'); //подтвердить оплату
-    let modal2 = document.getElementById('openModal2'); //оценка сервиса 
+    let modal = document.getElementById('openModal');
+    let modal2 = document.getElementById('openModal2');
     let closeBut = document.querySelector('.close');
     let nextBut = document.querySelector('.next');
     let closeBut1 = document.querySelector('.close1');
@@ -38,44 +38,46 @@ function init() {
                 status
             });
             globDivClose.classList.add('close');
-
-            checkPaidForm().then((result) => {
-                nextBut.onclick = function () {
-                        modal.classList.remove('open');
-                        checkOrderStatus().then((result) => {
-                            orderCooking()
-                            console.log(result);
-                        }).catch((error) => {
-                            console.log(error);
-                        });
-                        store.setItem(order);
-                        console.log(store);
-                    },
-                    closeBut.onclick = function () {
-                        modal.classList.remove('open');
-                        globDivClose.classList.remove('close');
-                        errorSpan.classList.add('error');
-                        errorSpan.textContent = 'Вы отменили оплату!';
-                        dataOfPizza.append(errorSpan);
-                    }
-                console.log(result);
-            }, (error) => {
-                console.log(error);
+            modal.classList.add('open');
+            checkPay().then(() => {
+                modal.classList.remove('open');
+                checkStatusOrder().then(() => {
+                    orderdCooking('');
+                }).catch(() => {
+                    order.status = "error";
+                    createDiv("К сожалению, курьер не смог до Вас добраться");
+                })
+                store.setItem(order);
+                console.log(store);
+            }).catch(() => {
+                modal.classList.remove('open');
+                globDivClose.classList.remove('close');
+                errorSpan.classList.add('error');
+                errorSpan.textContent = 'Вы отменили оплату!';
+                dataOfPizza.append(errorSpan);
             })
         }
     }
 
-    function checkPaidForm() {
+
+    function checkPay() {
         return new Promise((resolve, reject) => {
-            modal.classList.add('open');
-            // setTimeout(() => {
-                    resolve('success');
-                // }, 1000),
-                // setTimeout(() => {
-                    reject(new Error('error'));
-                // }, 2000);
+            nextBut.onclick = function () {
+                    resolve()
+                },
+                closeBut.onclick = function () {
+                    reject()
+                }
+        });
+    }
+
+    function checkStatusOrder() {
+        return new Promise((resolve, reject) => {
+            resolve();
+            reject();
         })
     }
+
 
     closeBut1.onclick = function () {
         saidThanksForReview();
@@ -107,6 +109,7 @@ function init() {
         while (paras[0]) {
             paras[0].parentNode.removeChild(paras[0]);
         }
+
     }
 
     let orderOnYou = function () {
@@ -118,32 +121,20 @@ function init() {
     let orderOnTheWay = function () {
         order.status = "coocked";
         createDiv("Курьер забрал пиццу")
-        setTimeout(orderOnYou, 2000);
+        setTimeout(orderOnYou, 1000);
     }
 
     let orderCooking = function () {
         order.status = "ordered";
         createDiv("Пицца готовиться");
-        setTimeout(orderOnTheWay, 3000);
+        setTimeout(orderOnTheWay, 1000);
     }
-
 
     function createDiv(text) {
         let div = document.createElement('div');
         document.body.append(div);
         div.textContent = text;
         div.classList.add('check-status');
-    }
-
-    function checkOrderStatus() {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                    resolve('success');
-                }, 1000),
-                setTimeout(() => {
-                    reject(new Error('error'));
-                }, 2000);
-        })
     }
 
 
