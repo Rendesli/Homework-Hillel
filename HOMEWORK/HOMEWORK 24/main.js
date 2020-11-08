@@ -41,14 +41,18 @@ function init() {
             modal.classList.add('open');
             checkPay().then(() => {
                 modal.classList.remove('open');
-                checkStatusOrder().then(() => {
-                    orderdCooking('');
+                store.setItem(order);
+                console.log(store);
+                return new Promise((resolve, reject) => {
+                    resolve();
+                    reject();
+                }).then(() => {
+                    orderCooking();
                 }).catch(() => {
                     order.status = "error";
                     createDiv("К сожалению, курьер не смог до Вас добраться");
+                    setTimeout(review, 1000);
                 })
-                store.setItem(order);
-                console.log(store);
             }).catch(() => {
                 modal.classList.remove('open');
                 globDivClose.classList.remove('close');
@@ -70,14 +74,6 @@ function init() {
                 }
         });
     }
-
-    function checkStatusOrder() {
-        return new Promise((resolve, reject) => {
-            resolve();
-            reject();
-        })
-    }
-
 
     closeBut1.onclick = function () {
         saidThanksForReview();
