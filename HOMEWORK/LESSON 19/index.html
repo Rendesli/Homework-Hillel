@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="./main.js"></script>
+    <style>
+        body{
+            background-color: azure;
+        }
+        input{
+            padding: 4px;
+            border-radius: 4px;
+            margin: 5px 0;
+            display: block;
+        }
+        .post-container{
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .post{
+            width: 900px;
+            display: block;
+        }
+        .postStyle{
+            padding-bottom: 10px;
+            background-color: antiquewhite;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Loading post!</h1>
+    <label>
+        Enter the id of post
+        <input id="postInput" type="number" name="post-id">
+    </label>
+    <button id="request">Request</button>
+    <!-- <button id="add">Add</button> -->
+    <div class="post-container">
+<div class="post">
+</div>
+<span></span>
+    </div>
+</body>
+
+</html>
