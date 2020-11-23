@@ -1,0 +1,32 @@
+* {
+    box-sizing: border-box;
+}
+
+alert-component {
+    position: absolute;
+
+    top: 5%;
+    left: 50%;
+    transform: translate(-50%);
+
+    width: 600px;
+    height: 150px;
+    padding: 15px;
+    border: groove 1em red;
+    border-radius: 2em;
+    text-align: center;
+}     
+
+.button {
+    position: absolute;
+    top: 65%;
+    left: 82%;
+margin-top: 20px;
+    width: 100px;
+    height: 50px;
+    border: dotted;
+    border-width: 10px 4px;
+    border-radius: 10px 40px;
+    background-color: #408aec;
+    color:#e7e7f8;
+}

@@ -5,7 +5,7 @@ const logger = require('morgan');
 const connectLivereload = require("connect-livereload");
 const livereload = require("livereload");
 const liveReloadServer = livereload.createServer();
-const publicDirectory = path.join(__dirname, '../public');
+const publicDirectory = path.join(__dirname, 'public');
 liveReloadServer.watch(publicDirectory);
 
 liveReloadServer.server.once("connection", () => {
